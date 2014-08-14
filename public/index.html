@@ -73,17 +73,6 @@
             $.tmpl("summarizeData", status.summarize).appendTo("#summarize");
           });
 
-          socket.on('count', function (msg) {
-            $.gritter.add({
-              title : 'Breaking news',
-              time  : 5000,
-              text  : 'Services Status dashboard: ' + msg + ' users connected.'
-            });
-          });
-
-          socket.on('close', function () {
-          });
-
           socket.on('disconnect', function () {
             $("#lastupdate").empty();
             $("#lastupdate").html('Error occurs server side.');
