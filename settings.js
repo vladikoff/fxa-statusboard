@@ -65,7 +65,7 @@ exports.create = function() {
       name: 'restmail.net',
       label: 'restmail.net',
       check: 'http',
-      host: 'restmail.net',
+      host: 'www.restmail.net',
       port: '80',
       path: '/'
     }
