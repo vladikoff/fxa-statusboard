@@ -37,7 +37,7 @@
           });
 
           socket.on('title', function (msg) {
-            if (msg.length > 0) {
+            if (msg && msg.length > 0) {
               $("#title").html(msg);
               document.title = msg;
             }
