@@ -11,7 +11,6 @@ exports.create = function() {
   var settings = {};
 
   var defaults = {
-    title: 'Services Status Dashboard',
     port: process.env.PORT || 8080,
     client: {
       transports: []
@@ -20,28 +19,54 @@ exports.create = function() {
     serviceDelay: 1000,
     hostname: '0.0.0.0',
     services: [
+    /**
+     * Content Servers
+     */
     {
-      name: 'Content Server: Latest',
-      label: 'Content Server: Latest',
+      group: 'Content Servers',
+      name: 'accounts.firefox.com',
+      label: 'accounts.firefox.com',
+      check: 'https',
+      host: 'accounts.firefox.com',
+      port: '443',
+      path: '/'
+    },
+    {
+      group: 'Content Servers',
+      name: 'latest.dev.lcip.org',
+      label: 'latest.dev.lcip.org',
       check: 'https',
       host: 'latest.dev.lcip.org',
       port: '443',
       path: '/'
     },
     {
-      name: 'Content Server: Stable',
-      label: 'Content Server: Stable',
+      group: 'Content Servers',
+      name: 'stable.dev.lcip.org',
+      label: 'stable.dev.lcip.org',
       check: 'https',
       host: 'stable.dev.lcip.org',
       port: '443',
       path: '/'
     },
     {
-      name: 'Content Server: Nightly',
-      label: 'Content Server: Nightly',
+      group: 'Content Servers',
+      name: 'nightly.dev.lcip.org',
+      label: 'nightly.dev.lcip.org',
       check: 'https',
       host: 'nightly.dev.lcip.org',
       port: '443',
+      path: '/'
+    },
+    /**
+     * Other Services
+     */
+    {
+      name: 'restmail.net',
+      label: 'restmail.net',
+      check: 'http',
+      host: 'restmail.net',
+      port: '80',
       path: '/'
     }
     ],

@@ -28,7 +28,7 @@ Layout
 
 
 body	{
-	background: url(../images/background_solid.png);
+	background: white!important;
 }
 
 #wrapper	{
