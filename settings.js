@@ -12,18 +12,12 @@ exports.create = function() {
 
   var defaults = {
     title: 'Services Status Dashboard',
-    hostname: '127.0.0.1',
-    port: 8080,
+    port: process.env.PORT || 8080,
     client: {
       transports: []
     },
-    services: [],
     serviceInterval: 20000,
-    serviceDelay: 1000
-  };
-
-  settings['demo'] = {
-    port: 8080,
+    serviceDelay: 1000,
     hostname: '0.0.0.0',
     services: [
     {
@@ -44,13 +38,13 @@ exports.create = function() {
     },
     {
       name: 'Content Server: Nightly',
+      label: 'Content Server: Nightly',
       check: 'https',
-      host: 'stable.dev.lcip.org',
+      host: 'nightly.dev.lcip.org',
       port: '443',
       path: '/'
-    },
+    }
     ],
-    serviceInterval: 6000,
     plugins : {
       external: {
         enable: false,
