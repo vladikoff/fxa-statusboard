@@ -227,9 +227,7 @@ body {
 			}
 
 			.project h2 span .strikethrough {
-				display: block; height: 38px;
-				background: url(../images/status-display-strikethrough.png) 0px 17px repeat-x;
-				position: absolute; top: 0px; left: 2px;
+
 			}
 
 			.project h2 .service .strikethrough {
