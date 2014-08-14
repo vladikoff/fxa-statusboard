@@ -25,169 +25,36 @@ exports.create = function() {
   settings['demo'] = {
     port: 8080,
     hostname: '0.0.0.0',
-    services: [{
-      name: 'couchdb', 
-      label: 'Couchdb server @ local',
-      check: 'http',
-      host: '127.0.0.1', 
-      port: '5984',
+    services: [
+    {
+      name: 'Content Server: Latest',
+      label: 'Content Server: Latest',
+      check: 'https',
+      host: 'latest.dev.lcip.org',
+      port: '443',
       path: '/'
-    }, {
-      name: 'blog.bazoud.com', 
-      label: 'Olivier Bazoud blog: Index',
-      check: 'http',
-      host: 'blog.bazoud.com', 
-      port: '80',
+    },
+    {
+      name: 'Content Server: Stable',
+      label: 'Content Server: Stable',
+      check: 'https',
+      host: 'stable.dev.lcip.org',
+      port: '443',
       path: '/'
-    }, {
-      name: 'blog.bazoud.com-healthCheck',
-      label: 'Olivier Bazoud blog: healthCheck',
-      check: 'http',
-      host: 'blog.bazoud.com',
-      port: '80',
-      path: '/healthCheck'
-    }, {
-      name: 'blog.bazoud.com-fixedvalue-ok',
-      label: 'Olivier Bazoud blog: FixedValue ok',
-      check: 'http',
-      host: 'blog.bazoud.com',
-      port: '80',
-      path: '/healthCheck',
-      checkFixedValueResponse: {
-        'ok': 'up',
-        'ko': 'critical'
-      }
-    }, {
-      name: 'healthCheck-fixedvalue-ko',
-      label: 'Olivier Bazoud blog: FixedValue: ko',
-      check: 'http',
-      host: 'blog.bazoud.com',
-      port: '80',
-      path: '/healthCheckKO',
-      checkFixedValueResponse: {
-        'ok': 'up',
-        'ko': 'critical'
-      }
-    }, {
-      name: 'blog.bazoud.com-rangevalues-10',
-      label: 'Olivier Bazoud blog: RangeValues 10',
-      check: 'http',
-      host: 'blog.bazoud.com',
-      port: '80',
-      path: '/healthCheckRange',
-      checkRangeValuesResponse: [
-        { 'status': 'up', 'min': 0, 'max': 10 },
-        { 'status': 'critical', 'min': 10 }
-      ]
-    }, {
-      name: 'redis',
-      label: 'Redis server @ local',
-      check: 'tcp',
-      host: '127.0.0.1',
-      port: '6379',
-      cmd: 'PING\r\n',
-      rcv: '+PONG\r\n'
-    }, {
-      name: 'redis-without-cmd',
-      label: 'Redis server @ local (without cmd)',
-      check: 'tcp',
-      host: '127.0.0.1',
-      port: '6379'
-    }, {
-      name: 'FTP-Local',
-      label: 'Ftp @ local',
-      check: 'ftp',
-      host: 'localhost',
-      port: '21',
-      username: 'statusdashboard',
-      password: 'statusdashboard'
-    }, {
-      name: 'PID-file',
-      label: 'Pid @ local',
-      check: 'pidfile',
-      pidfile: '/tmp/terminal.pid',
-      status: 'maintenance'
-    }, {
-      name: 'Local HTTP sample',
-      label: 'Local HTTP Sample: healthCheck',
-      check: 'http',
-      host: 'localhost',
-      port: '3303',
+    },
+    {
+      name: 'Content Server: Nightly',
+      check: 'https',
+      host: 'stable.dev.lcip.org',
+      port: '443',
       path: '/'
-    }],
+    },
+    ],
     serviceInterval: 6000,
     plugins : {
       external: {
-        enable : false,
-        file : __dirname + '/plugins.json'
-      },
-      console : {
-        enable: false
-      },
-      irc : {
         enable: false,
-        server: 'irc.freenode.net',
-        nick: 'status',
-        options: {
-          debug: false,
-          port: 8001,
-          channels: ['#statusdashboard']
-        }
-      },
-      xmpp: {
-        enable: false,
-        from: {
-          jid: 'from@jabber.org',
-          password: 'XXX',
-          host : 'jabber.org'
-        },
-        to: 'to@jabber.org'
-      },
-      twitter: {
-        enable: false,
-        consumer_key: "",
-        consumer_secret: "",
-        access_token_key: "",
-        access_token_secret: ""
-      },
-      history: {
-        enable: true,
-        host: "127.0.0.1",
-        port: 6379,
-        namespace: "statusdashboard",
-        options: {
-        },
-        client: true
-      },
-      mail: {
-        enable: false,
-        sender: 'xxx',
-        to: 'xxx',
-        subject: '[statusdashboard]: Alert',
-        options: {
-          nodemailer: {
-            host: 'smtp.gmail.com',
-            port: 465,
-            use_authentication: true,
-            ssl: true,
-            user: 'xxx',
-            pass: 'xxx',
-            debug: false
-          }
-        }
-      },
-      webhook: {
-        enable : false,
-        url: 'http://localhost:8080/api/webhook/test'
-      },
-      heartbeat: {
-        enable: false,
-        period: 20000
-      },
-      graphite: {
-        enable: false,
-        url: 'plaintext://xxx:2003/',
-        prefix: 'xxx'
+        file: __dirname + '/plugins.json'
       }
     }
   };
