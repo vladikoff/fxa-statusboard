@@ -16,7 +16,7 @@ exports.create = function() {
       transports: []
     },
     serviceInterval: 20000,
-    serviceDelay: 1000,
+    serviceDelay: 3000,
     hostname: '0.0.0.0',
     services: [
     /**
@@ -59,6 +59,26 @@ exports.create = function() {
       path: '/'
     },
     /**
+     * Loop
+     */
+    {
+      group: 'Loop',
+      label: 'loop.services.mozilla.com',
+      check: 'https',
+      host: 'loop.services.mozilla.com',
+      port: '443',
+      path: '/'
+    },
+    {
+      group: 'Loop',
+      name: 'loop.dev.lcip.org',
+      label: 'loop.dev.lcip.org',
+      check: 'http',
+      host: 'loop.dev.lcip.org',
+      port: '80',
+      path: '/'
+    },
+    /**
      * Other Services
      */
     {
@@ -68,6 +88,21 @@ exports.create = function() {
       host: 'www.restmail.net',
       port: '80',
       path: '/mail/v1'
+    },
+    {
+      label: 'qa.stage.mozaws.net',
+      check: 'http',
+      host: 'qa.stage.mozaws.net',
+      port: '8080',
+      path: '/'
+    },
+    {
+      name: 'freight.dev.lcip.org',
+      label: 'freight.dev.lcip.org',
+      check: 'https',
+      host: 'freight.dev.lcip.org',
+      port: '443',
+      path: '/'
     },
     {
       name: 'npm',
