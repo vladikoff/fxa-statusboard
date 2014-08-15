@@ -77,8 +77,6 @@ exports.create = function() {
       port: '443',
       path: '/'
     }
-
-
     ],
     plugins : {
       external: {
