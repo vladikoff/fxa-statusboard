@@ -10,16 +10,6 @@ Status Dashboard is status page for your configured services or applications.
 
 Demo @ [Heroku](http://heroku.com) : [http://statusdashboard-node.herokuapp.com](http://statusdashboard-node.herokuapp.com)
 
-Screenshots
-=======
-
-<img src="http://blog.bazoud.com/images/ssd1.png" alt="">
-
-<img src="http://blog.bazoud.com/images/ssd2.png" alt="">
-
-<img src="http://blog.bazoud.com/images/ssd3.png" alt="">
-
-
 Installation
 ============
 
@@ -28,13 +18,6 @@ or
 * npm install git+https://github.com/iobazoud/statusdashboard#master
 
 Optionally, you can install as a global package
-
-Roadmap
-=======
-* Improve UI: scrollbars, filters, check type column, ...
-* Add network services like SMTP, POP3, ...
-* Improve REST API to get / push data
-...
 
 How To Use
 =======
