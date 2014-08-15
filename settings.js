@@ -91,7 +91,7 @@ exports.create = function() {
     },
     {
       label: 'qa.stage.mozaws.net',
-      check: 'http',
+      check: 'tcp',
       host: 'qa.stage.mozaws.net',
       port: '8080',
       path: '/'
