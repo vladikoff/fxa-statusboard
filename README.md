@@ -1,3 +1,8 @@
+FXA Details
+======
+
+[![wercker status](https://app.wercker.com/status/01c7b12886ec39c2151c9aaefaadaef0/m "wercker status")](https://app.wercker.com/project/bykey/01c7b12886ec39c2151c9aaefaadaef0)
+
 Status Dashboard
 =======
 
