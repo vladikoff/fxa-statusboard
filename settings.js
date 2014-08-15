@@ -102,7 +102,7 @@ exports.create = function() {
       check: 'https',
       host: 'freight.dev.lcip.org',
       port: '443',
-      path: '/'
+      path: '/static/img/logo.png'
     },
     {
       name: 'npm',
