@@ -67,8 +67,18 @@ exports.create = function() {
       check: 'http',
       host: 'www.restmail.net',
       port: '80',
+      path: '/mail/v1'
+    },
+    {
+      name: 'npm',
+      label: 'npm',
+      check: 'https',
+      host: 'www.npmjs.org',
+      port: '443',
       path: '/'
     }
+
+
     ],
     plugins : {
       external: {
